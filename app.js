@@ -23,15 +23,29 @@ function sumOfBirthdate(birthDateStr) {
 
 function isBirthdayLucky() {
     var luckyNumber = Number(luckyNum.value);
-    var birthDateStr = dateToString(birthdate.value); /"2001-12-07"/
+    var birthDateStr = dateToString(birthdate.value); 
     sum = sumOfBirthdate(birthDateStr);
 
-    if (sum === 0) {
-        outputMessage.innerText = "Please enter a valid input!"
-    } else if (sum % luckyNumber === 0) {
-        outputMessage.innerText = luckyNumber + " is your Lucky Number!";
-    } else {
-        outputMessage.innerText = luckyNumber + " is not your Lucky Number!";
+    if(birthdate.value===""|| luckyNum.value ===""){
+        outputMessage.innerText = "Please enter birthdate/lucky number";
     }
+    else{
+        if(luckyNumber===0){
+            outputMessage.innerText = "The lucky number cannot be zero.";
+        }
+        else{
+
+            if (sum === 0) {
+                outputMessage.innerText = "Please enter a valid input!"
+            } else if (sum % luckyNumber === 0) {
+                outputMessage.innerText = luckyNumber + " is your Lucky Number!";
+            } else {
+                outputMessage.innerText = luckyNumber + " is not your Lucky Number!";
+            }
+
+        }
+    }
+
+    
 
 }
